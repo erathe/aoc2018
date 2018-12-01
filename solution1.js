@@ -14,8 +14,8 @@ console.log('result1: ', res1);
 console.time('run');
 // part2
 // using an array for lookup takes approx 7500 ms
-// using an object takes approx 65 ms
-// using a set takes approx 25 ms
+// using an object takes approx 60 ms
+// using a set takes approx 20 ms
 let result2 = input => {
   let freq = 0;
   let seen = new Set();
