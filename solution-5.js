@@ -8,19 +8,15 @@ const input = fs
 console.time('run');
 
 const imploder = array => {
-  let done = false;
-  while (!done) {
-    let implosion = false;
-    array.forEach((c, i, a) => {
-      if (c === c.toLowerCase() && a[i + 1] === c.toUpperCase()) {
-        array.splice(i, 2);
-        implosion = true;
-      } else if (c === c.toLowerCase() && a[i - 1] === c.toUpperCase()) {
-        array.splice(i - 1, 2);
-        implosion = true;
-      }
-    });
-    if (implosion === false) done = true;
+  let i = 0
+  while(true) {
+    if (i >= array.length-1) break;
+    else if (Math.abs(array[i].charCodeAt(0) - array[i + 1].charCodeAt(0)) === 32) {
+      array.splice(i, 2);
+      if (i > 0) i -= 1;
+    } else {
+      i++
+    }
   }
   return array;
 };
