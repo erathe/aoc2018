@@ -22,15 +22,13 @@ const dfsImploder = array => {
 
   sum += sumMultiple(metaCount, rest);
 
-  if (children == 0) {
+  if (children == 0)
     return [sum, rest.slice(metaCount), sumMultiple(metaCount, rest)];
-  } else {
-    return [
-      sum,
-      rest.slice(metaCount),
-      R.sum(R.take(metaCount, rest).map(i => (vals[i - 1]) || 0))
-    ];
-  }
+  return [
+    sum,
+    rest.slice(metaCount),
+    R.sum(R.take(metaCount, rest).map(i => vals[i - 1] || 0))
+  ];
 };
 let [total, _, val] = dfsImploder(input);
 
