@@ -28,7 +28,7 @@ const dfsImploder = array => {
     return [
       sum,
       rest.slice(metaCount),
-      R.sum(R.take(metaCount, rest).map(i => (vals[i - 1] ? vals[i - 1] : 0)))
+      R.sum(R.take(metaCount, rest).map(i => (vals[i - 1]) || 0))
     ];
   }
 };
